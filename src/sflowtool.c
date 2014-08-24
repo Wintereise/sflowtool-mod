@@ -672,10 +672,12 @@ static void writeFlowLine(SFSample *sample)
   /* bgp data */
   if(sample->datagramVersion >= 5)
   {
-    if(printf(",EXT,%u,%u,%u,%u\n",
+    if(printf(",EXT,%u,%u,%u,%u,%u,%u\n",
             sample->my_as,
-            sample->dst_peer_as,
+            sample->src_as,
+            sample->src_peer_as,
             sample->dst_as,
+            sample->dst_peer_as,
             sample->localpref) < 0) {
                 exit(-47);
             }
