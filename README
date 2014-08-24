@@ -221,14 +221,17 @@ packet_size
 IP_size
 sampling_rate
 
-This version adds 4 new counters to CSV output, namely
+This version adds 6 new counters to CSV output, namely
 my_as
-dst_peer_as
+src_as
+src_peer_as
 dst_as
+dst_peer_as
 local_pref
 
 Output now looks like the following for sflow version 5 datagrams,
 
-FLOW,10.100.1.1,4,2,0026886a8483,649ef3f3be10,0x0800,10,1,107.112.131.112,116.157.128.58,6,0x00,62,30245,60692,0x18,1522,1500,2048,EXT,62638,12179,2516,400
+FLOW,10.100.1.2,4,1,0026886a8483,001b0de44cc0,0x0800,1,1,77.130.228.132,86.56.253.124,17,0x00,253,1050,19,0x10,51,29,2048,EXT,62638,42811,174,12605,174,100
 
-The 'EXT' bit signifies the start of extended data, and these values will be 0 (zeroes) in case of incoming traffic.
+
+The 'EXT' bit signifies the start of extended data, and these values will be 0 (zeroes) in case of local traffic.
